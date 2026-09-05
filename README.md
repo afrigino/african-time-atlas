@@ -9,7 +9,7 @@ The atlas traces the rise, peak, and decline of **47 major states and empires** 
 Published via GitHub Pages:
 
 ```
-https://<your-username>.github.io/african-time-atlas/
+https://afrigino.github.io/african-time-atlas/
 ```
 
 ## Features
@@ -60,9 +60,9 @@ If you use this atlas in your research, please cite both this repository and the
 ```bibtex
 @misc{african_kingdoms_atlas,
   title        = {African Kingdoms Atlas: Pre-Colonial States, 500--1850 CE},
-  author       = {[Your Name]},
+  author       = {Alex Frigino},
   year         = {2026},
-  howpublished = {\url{https://<your-username>.github.io/african-time-atlas/}},
+  howpublished = {\url{https://afrigino.github.io/african-time-atlas/}},
   note         = {Companion digital atlas to the paper on African time},
   license      = {CC-BY-4.0}
 }
@@ -70,4 +70,4 @@ If you use this atlas in your research, please cite both this repository and the
 
 ## License
 
-© 2026 [Your Name]. Licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
+© 2026 Alex Frigino. Licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
