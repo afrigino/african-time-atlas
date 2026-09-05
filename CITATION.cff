@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this atlas in your research, please cite both this repository and the companion paper on African time."
+title: "African Kingdoms Atlas: Pre-Colonial States, 500-1850 CE"
+authors:
+  - family-names: "[Your Family Name]"
+    given-names: "[Your Given Name]"
+type: software
+repository-code: "https://github.com/[your-username]/african-time-atlas"
+url: "https://[your-username].github.io/african-time-atlas/"
+abstract: >-
+  An interactive, map-based timeline of pre-colonial African kingdoms and empires
+  from 500 CE to 1850 CE, with 47 sourced states, approximate peak-extent territory
+  polygons for 16 major empires, and 12 trade routes. Draws on the UNESCO General
+  History of Africa and archaeological research.
+keywords:
+  - African history
+  - historical geography
+  - digital humanities
+  - interactive map
+  - UNESCO General History of Africa
+license: CC-BY-4.0
+version: "1.0.0"
+date-released: "2026-09-05"

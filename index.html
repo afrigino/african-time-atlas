@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>African Kingdoms Atlas — Pre-Colonial States, 500–1850 CE</title>
+  <meta name="description" content="An interactive, map-based timeline of pre-colonial African kingdoms and empires from 500 CE to 1850 CE, drawing on the UNESCO General History of Africa and archaeological research." />
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%238a4a1e'/%3E%3Cpath d='M16 6 L24 12 L22 22 L10 22 L8 12 Z' fill='none' stroke='%23f3e9d8' stroke-width='1.8'/%3E%3Ccircle cx='16' cy='16' r='2.4' fill='%23f3e9d8'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-header__inner">
+      <a class="brand" href="#" aria-label="African Kingdoms Atlas home">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="currentColor" />
+          <path d="M16 6 L24 12 L22 22 L10 22 L8 12 Z" fill="none" stroke="#f3e9d8" stroke-width="1.8" />
+          <circle cx="16" cy="16" r="2.4" fill="#f3e9d8" />
+        </svg>
+        <span class="brand__text">
+          <span class="brand__title">African Kingdoms Atlas</span>
+          <span class="brand__sub">Pre-Colonial States · 500–1850 CE</span>
+        </span>
+      </a>
+      <nav class="app-nav" aria-label="Primary">
+        <button class="nav-btn" data-action="toggle-info" aria-label="About this atlas">About</button>
+        <button class="nav-btn" data-action="toggle-method" aria-label="Sources and methodology">Sources</button>
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <!-- Control bar -->
+    <section class="controls" aria-label="Timeline and search controls">
+      <div class="controls__search">
+        <svg class="controls__search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input id="search" type="search" placeholder="Search kingdoms, trade partners, exports…" autocomplete="off" aria-label="Search kingdoms" />
+        <button class="chip-clear" id="clear-search" aria-label="Clear search" hidden>×</button>
+      </div>
+
+      <div class="controls__regions" role="group" aria-label="Filter by region" id="region-filter"></div>
+
+      <div class="controls__year" role="group" aria-label="Selected year">
+        <span class="controls__year-label">Year CE</span>
+        <output class="controls__year-value" id="year-value">800</output>
+      </div>
+    </section>
+
+    <!-- Timeline slider -->
+    <section class="timeline" aria-label="Timeline slider">
+      <div class="timeline__track">
+        <input id="year-slider" class="timeline__slider" type="range" min="500" max="1850" step="10" value="800" aria-label="Select year" />
+        <div class="timeline__ticks" id="timeline-ticks" aria-hidden="true"></div>
+      </div>
+      <div class="timeline__buttons">
+        <button class="play-btn" id="play-btn" aria-label="Play timeline animation">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          <span>Animate</span>
+        </button>
+        <div class="timeline__legend" aria-label="Marker legend">
+          <span class="legend-item"><span class="legend-dot legend-dot--peak"></span>Peak power</span>
+          <span class="legend-item"><span class="legend-dot legend-dot--active"></span>Active state</span>
+          <span class="legend-item"><span class="legend-dot legend-dot--territory"></span>Peak territory</span>
+          <span class="legend-item"><span class="legend-dot legend-dot--route"></span>Trade route</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="workspace">
+      <!-- Map -->
+      <div class="map-wrap">
+        <div id="map" role="application" aria-label="Interactive map of African kingdoms"></div>
+        <div class="map-overlay" id="active-count" aria-live="polite"></div>
+      </div>
+
+      <!-- Side panel -->
+      <aside class="panel" id="panel" aria-label="Kingdom details">
+        <div class="panel__empty" id="panel-empty">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M12 2 L4 6 L4 12 C4 17 8 21 12 22 C16 21 20 17 20 12 L20 6 Z"/></svg>
+          <h2 class="panel__title">Select a kingdom</h2>
+          <p class="panel__body">Click any marker on the map to explore its peak dates, trade partners, cultural exports, and primary source accounts.</p>
+          <p class="panel__hint">Use the timeline slider above to watch regional power shift across the medieval and early modern periods.</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- About modal -->
+  <dialog class="modal" id="modal-info" aria-label="About this atlas">
+    <article class="modal__content">
+      <button class="modal__close" data-close="modal-info" aria-label="Close">×</button>
+      <h2 class="modal__title">About this Atlas</h2>
+      <p>This interactive atlas traces the rise, peak, and decline of major pre-colonial African states and empires between 500 and 1850 CE. Each node marks a political or cultural center — not a fixed border. Boundaries shifted constantly, and many polities overlapped in time and space.</p>
+      <p>The data draws on the <strong>UNESCO General History of Africa</strong> (volumes II–VI), peer-reviewed archaeological excavations at sites such as Aksum, Meroë, Great Zimbabwe, Jenne-jeno, Gao, Timbuktu, Ife, Benin City, and Mbanza Kongo, and primary textual accounts where they survive — including Ibn Battuta, al-Bakri, Leo Africanus, and the Periplus of the Erythraean Sea.</p>
+      <p>Move the timeline slider to see which states were active in any given year. Markers swell and brighten during a state's peak; shaded polygons show each major empire's approximate peak territorial extent. Trade routes appear only when active. Search filters by kingdom name, region, trade partner, or cultural export.</p>
+      <p class="modal__note">A note on evidence: not every state left a written record. Many are known primarily through archaeology or oral tradition — this is reflected in each entry's evidence type.</p>
+    </article>
+  </dialog>
+
+  <!-- Methodology modal -->
+  <dialog class="modal" id="modal-method" aria-label="Sources and methodology">
+    <article class="modal__content">
+      <button class="modal__close" data-close="modal-method" aria-label="Close">×</button>
+      <h2 class="modal__title">Sources &amp; Method</h2>
+      <p class="modal__body">Every kingdom entry and trade route carries source links. Click a marker, then follow the links in the details panel to reach the underlying primary text, archaeological report, or UNESCO chapter.</p>
+      <ul class="source-list" id="method-sources"></ul>
+      <p class="modal__note">Dates are approximate and reflect scholarly consensus, which is often debated. Where evidence is contested, this is noted. Points represent core centers, not exact territorial extents.</p>
+    </article>
+  </dialog>
+
+  <footer class="app-footer">
+    <p>An interactive reference drawing on the UNESCO General History of Africa and archaeological research. Dates are approximate; see Sources for evidence.</p>
+  </footer>
+
+  <script src="js/data.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
