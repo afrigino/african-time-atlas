@@ -18,6 +18,15 @@ keywords:
   - digital humanities
   - interactive map
   - UNESCO General History of Africa
+  - African philosophy of time
 license: CC-BY-4.0
 version: "1.0.0"
 date-released: "2026-09-05"
+preferred-citation:
+  type: article
+  title: "African Time: A Dialogue on Time and Knowledge in African Thought"
+  authors:
+    - family-names: "Frigino"
+      given-names: "Alex"
+  year: 2026
+  url: "https://www.academia.edu/144889366/African_Time_A_Dialogue_on_Time_and_Knowledge_in_African_Thought"

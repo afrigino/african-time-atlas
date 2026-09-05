@@ -1,6 +1,8 @@
 # African Kingdoms Atlas
 
-An interactive, map-based timeline of pre-colonial African kingdoms and empires from **500 CE to 1850 CE**, built as a digital companion to the Academia paper on African time.
+An interactive, map-based timeline of pre-colonial African kingdoms and empires from **500 CE to 1850 CE**, built as a digital companion to the Academia paper *African Time: A Dialogue on Time and Knowledge in African Thought*.
+
+**Companion paper:** [African Time: A Dialogue on Time and Knowledge in African Thought](https://www.academia.edu/144889366/African_Time_A_Dialogue_on_Time_and_Knowledge_in_African_Thought) (Academia.edu)
 
 The atlas traces the rise, peak, and decline of **47 major states and empires** across the continent, with **approximate peak-extent territory polygons** for 16 empires and **12 trade routes** spanning trans-Saharan, Red Sea, Indian Ocean, and Atlantic networks.
 
@@ -55,7 +57,7 @@ african-time-atlas/
 
 ## Citation
 
-If you use this atlas in your research, please cite both this repository and the companion paper:
+If you use this atlas in your research, please cite both this repository and the companion paper, *African Time: A Dialogue on Time and Knowledge in African Thought* (Academia.edu):
 
 ```bibtex
 @misc{african_kingdoms_atlas,
@@ -63,7 +65,7 @@ If you use this atlas in your research, please cite both this repository and the
   author       = {Alex Frigino},
   year         = {2026},
   howpublished = {\url{https://afrigino.github.io/african-time-atlas/}},
-  note         = {Companion digital atlas to the paper on African time},
+  note         = {Companion digital atlas to Alex Frigino, "African Time: A Dialogue on Time and Knowledge in African Thought" (Academia.edu, 2026), \url{https://www.academia.edu/144889366/African_Time_A_Dialogue_on_Time_and_Knowledge_in_African_Thought}.}
   license      = {CC-BY-4.0}
 }
 ```
