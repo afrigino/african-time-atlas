@@ -70,6 +70,10 @@ If you use this atlas in your research, please cite both this repository and the
 }
 ```
 
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for notable changes, including data and link fixes.
+
 ## License
 
 © 2026 Alex Frigino. Licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
