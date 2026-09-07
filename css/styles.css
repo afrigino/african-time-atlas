@@ -20,7 +20,7 @@
   /* Text — manuscript ink */
   --color-text: #2a2117;
   --color-text-muted: #6e5d44;
-  --color-text-faint: #a5926c;
+  --color-text-faint: #7d6a47;   /* AA: 4.76:1 on surface */
   --color-text-inverse: #faf4e6;
 
   /* Region colors (data-viz) */
@@ -36,6 +36,7 @@
   --color-primary: #8a4a1e;
   --color-primary-hover: #6d3a16;
   --color-accent: #b8862a;
+  --color-accent-text: #7d5a16; /* AA: 5.72:1 — for gold text on light surfaces */
 
   --shadow-sm: 0 1px 3px rgba(60, 40, 15, 0.12);
   --shadow-md: 0 6px 18px rgba(60, 40, 15, 0.16);
@@ -64,7 +65,7 @@
 
   --color-text: #e8dcc4;
   --color-text-muted: #b3a180;
-  --color-text-faint: #7e6e52;
+  --color-text-faint: #9a8a64;   /* AA: 5.02:1 on dark surface */
   --color-text-inverse: #221b14;
 
   --c-west: #d96a3a;
@@ -79,6 +80,7 @@
   --color-primary: #d96a3a;
   --color-primary-hover: #c2552a;
   --color-accent: #d4a23a;
+  --color-accent-text: #d4a23a; /* AA: 7.79:1 — gold text on dark surfaces */
 
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.5);
@@ -342,8 +344,8 @@ a:hover { color: var(--color-primary-hover); }
 .kingdom__source-label { font-weight: 600; font-size: 0.88rem; }
 .kingdom__source-note { font-size: 0.78rem; color: var(--color-text-muted); margin-top: 2px; }
 .kingdom__source-type {
-  font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.06em;
-  color: var(--color-accent); font-weight: 600; margin-bottom: 2px;
+  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--color-accent-text); font-weight: 600; margin-bottom: 2px;
 }
 .kingdom__evidence { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-1); }
 .evidence-tag { font-size: 0.72rem; padding: 2px var(--space-2); border-radius: var(--radius-sm); background: var(--color-surface-offset); color: var(--color-text-muted); }
@@ -400,7 +402,7 @@ a:hover { color: var(--color-primary-hover); }
 .km-dot--peak { box-shadow: 0 0 0 4px color-mix(in oklab, var(--km-color, var(--color-primary)) 30%, transparent), var(--shadow-md); }
 .kingdom-marker:hover .km-dot { transform: scale(1.25); box-shadow: var(--shadow-md); }
 .km-label {
-  font-size: 11px; font-weight: 600;
+  font-size: 12px; font-weight: 600;
   color: var(--color-text);
   text-shadow: -1px -1px 0 var(--color-surface), 1px -1px 0 var(--color-surface), -1px 1px 0 var(--color-surface), 1px 1px 0 var(--color-surface);
   white-space: nowrap;
@@ -417,7 +419,7 @@ a:hover { color: var(--color-primary-hover); }
 
 /* route line */
 .km-route { opacity: 0.55; }
-.leaflet-tooltip.km-route-label { background: var(--color-surface); border: 1px solid var(--color-border); color: var(--color-text-muted); font-size: 11px; padding: 2px 6px; border-radius: var(--radius-sm); }
+.leaflet-tooltip.km-route-label { background: var(--color-surface); border: 1px solid var(--color-border); color: var(--color-text-muted); font-size: 12px; padding: 2px 6px; border-radius: var(--radius-sm); }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 640px) {
