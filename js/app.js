@@ -397,10 +397,17 @@
   });
 
   /* ---------- Modals ---------- */
-  document.querySelectorAll('[data-action="toggle-info"]').forEach(b => b.addEventListener('click', () => document.getElementById('modal-info').showModal()));
+  // Open a <dialog> via showModal() when allowed, falling back to show()
+  // (some sandboxed preview iframes block the modal dialog API).
+  function openDialog(d) {
+    if (!d) return;
+    try { d.showModal(); }
+    catch (_) { d.show(); }
+  }
+  document.querySelectorAll('[data-action="toggle-info"]').forEach(b => b.addEventListener('click', () => openDialog(document.getElementById('modal-info'))));
   document.querySelectorAll('[data-action="toggle-method"]').forEach(b => b.addEventListener('click', () => {
     populateMethodSources();
-    document.getElementById('modal-method').showModal();
+    openDialog(document.getElementById('modal-method'));
   }));
   document.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', () => {
     const d = document.getElementById(b.dataset.close); if (d) d.close();

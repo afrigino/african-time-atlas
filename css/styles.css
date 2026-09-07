@@ -353,9 +353,9 @@ a:hover { color: var(--color-primary-hover); }
 .kingdom__coords { font-size: 0.72rem; color: var(--color-text-faint); margin-top: var(--space-2); font-family: var(--font-body); }
 
 /* ---------- Modals ---------- */
-.modal { border: none; padding: 0; background: transparent; }
-.modal::backdrop { background: rgba(20, 12, 5, 0.55); backdrop-filter: blur(4px); }
-.modal[open] { animation: modalIn 240ms cubic-bezier(0.16, 1, 0.3, 1); }
+.modal { border: none; padding: 0; background: rgba(20, 12, 5, 0.55); backdrop-filter: blur(4px); margin: 0; }
+.modal[open] { animation: modalIn 240ms cubic-bezier(0.16, 1, 0.3, 1); display: flex; align-items: center; justify-content: center; position: fixed; inset: 0; z-index: 1000; }
+.modal::backdrop { background: transparent; }
 @keyframes modalIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 .modal__content {
   background: var(--color-surface);
