@@ -1402,7 +1402,7 @@ window.KINGDOM_DATA = {
       "primarySources": [
         {
           "label": "Letter from Afonso I, king of Kongo, to Manuel I, king of Portugal, 1514 (trans. and ed. John-Charles Duffy, from Paiva Manso, Historia do Congo, 1877; checked against Brásio, Monumenta missionaria africana I)",
-          "url": "https://sites.miamioh.edu/empire/files/2022/08/1514-Letter-from-Afonso-I-to-Manuel-I.pdf",
+          "url": "https://sites.miamioh.edu/empire/files/2026/01/1514-Letter-from-Afonso-I-to-Manuel-I.pdf",
           "note": "African royal author writing in Portuguese about Christianisation, Portuguese assistance and the slave trade; the single most important indigenous primary source for Kongo."
         },
         {
